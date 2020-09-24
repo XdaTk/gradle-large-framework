@@ -1,0 +1,33 @@
+description = "Tenon Dependency Project"
+
+group "cloud.tenon.dependency"
+
+apply plugin: "cloud.tenon.gradle.bom"
+
+bom {
+    library("Spring Boot", "${springBootVersion}") {
+        group("org.springframework.boot") {
+            imports = [
+                    "spring-boot-dependencies"
+            ]
+        }
+    }
+
+    library("Tenon", "${project.version}") {
+        group("cloud.tenon.common") {
+            modules = [
+                    "tenon-common-basic"
+            ]
+        }
+
+        group("cloud.tenon.spring.boot") {
+            modules = [
+                    "tenon-boot-starter",
+                    "tenon-boot-starter-web",
+                    "tenon-boot-starter-webflux",
+                    "tenon-boot-starter-actuator",
+            ]
+        }
+    }
+
+}

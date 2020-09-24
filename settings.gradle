@@ -1,0 +1,21 @@
+rootProject.name = "tenon"
+
+include "tenon-dependency-project"
+
+include "tenon-container-project"
+file("${rootDir}/tenon-container-project").eachDirMatch(~/tenon-container-.*/) {
+    include "tenon-container-project:${it.name}"
+}
+
+include "tenon-common-project"
+file("${rootDir}/tenon-common-project").eachDirMatch(~/tenon-common-.*/) {
+    include "tenon-common-project:${it.name}"
+}
+
+include "tenon-boot-project"
+include "tenon-boot-project:tenon-boot-parent"
+include "tenon-boot-project:tenon-boot-starters"
+file("${rootDir}/tenon-boot-project/tenon-boot-starters").eachDirMatch(~/tenon-boot-.*/) {
+    include "tenon-boot-project:tenon-boot-starters:${it.name}"
+}
+

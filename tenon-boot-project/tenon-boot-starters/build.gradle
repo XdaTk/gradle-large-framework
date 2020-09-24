@@ -1,0 +1,5 @@
+description = "Tenon Spring Boot Starters"
+
+subprojects {
+    apply plugin: "cloud.tenon.gradle.project"
+}

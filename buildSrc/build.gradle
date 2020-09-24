@@ -1,0 +1,51 @@
+plugins {
+    id "java-gradle-plugin"
+}
+
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+[compileJava, compileTestJava, javadoc]*.options*.encoding = "UTF-8"
+
+gradlePlugin {
+    plugins {
+        bom {
+            id = "cloud.tenon.gradle.bom"
+            implementationClass = "cloud.tenon.gradle.bom.BomPlugin"
+        }
+
+        projectPlugin {
+            id = "cloud.tenon.gradle.project"
+            implementationClass = "cloud.tenon.gradle.project.ProjectPlugin"
+        }
+
+        conventionPlugin {
+            id = "cloud.tenon.gradle.convention"
+            implementationClass = "cloud.tenon.gradle.convention.ConventionPlugin"
+        }
+
+        dependencyOptionalPlugin {
+            id = "cloud.tenon.build.maven.option"
+            implementationClass = "cloud.tenon.gradle.maven.OptionalDependencyPlugin"
+        }
+
+        mavenDeployedPlugin {
+            id = "cloud.tenon.gradle.maven.deployed"
+            implementationClass = "cloud.tenon.gradle.maven.DeployedPlugin"
+        }
+
+        mavenRepositoryPlugin {
+            id = "cloud.tenon.gradle.maven.repository"
+            implementationClass = "cloud.tenon.gradle.maven.RepositoryPlugin"
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

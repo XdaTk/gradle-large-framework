@@ -1,0 +1,6 @@
+description = "Tenon Spring Boot Web Starter"
+
+dependencies {
+    implementation(project(":tenon-boot-project:tenon-boot-starters:tenon-boot-starter"))
+    implementation("org.springframework.boot:spring-boot-starter-web")
+}

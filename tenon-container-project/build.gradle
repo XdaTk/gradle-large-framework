@@ -1,0 +1,7 @@
+description = "Tenon Container Project"
+
+allprojects {
+    group "cloud.tenon.container"
+}
+
+

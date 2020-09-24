@@ -1,0 +1,20 @@
+description = "Tenon Spring Boot Parent Dependency"
+
+apply plugin: "java-platform"
+apply plugin: "cloud.tenon.gradle.convention"
+apply plugin: "cloud.tenon.gradle.maven.deployed"
+apply plugin: "cloud.tenon.gradle.maven.repository"
+
+publishing.publications.withType(MavenPublication) {
+    pom.withXml { xml ->
+        def root = xml.asNode()
+        root.groupId.replaceNode {
+            parent {
+                delegate.groupId("${project.group}")
+                delegate.artifactId("tenon-dependency-project")
+                delegate.version("${project.version}")
+            }
+        }
+        root.remove(root.version)
+    }
+}

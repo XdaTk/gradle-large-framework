@@ -1,0 +1,5 @@
+description = "Tenon Spring Boot Project"
+
+allprojects {
+    group "cloud.tenon.spring.boot"
+}

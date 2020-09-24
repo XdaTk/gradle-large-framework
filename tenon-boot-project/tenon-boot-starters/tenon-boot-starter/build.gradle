@@ -1,0 +1,6 @@
+description = "Tenon Spring Boot Starter"
+
+dependencies {
+    implementation(project(":tenon-common-project:tenon-common-basic"))
+    implementation("org.springframework.boot:spring-boot-starter")
+}

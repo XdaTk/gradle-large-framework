@@ -1,0 +1,9 @@
+description = "Tenon Common Project"
+
+allprojects {
+    group "cloud.tenon.common"
+}
+
+subprojects {
+    apply plugin: "cloud.tenon.gradle.project"
+}

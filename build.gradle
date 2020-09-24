@@ -1,0 +1,28 @@
+description = "Tenon Project"
+
+buildscript {
+    ext {
+        springBootVersion = "2.3.4.RELEASE"
+    }
+}
+
+allprojects {
+    group "cloud.tenon"
+    version "1.0.0-SNAPSHOT"
+
+    apply plugin: "idea"
+    apply plugin: "eclipse"
+
+    repositories {
+        mavenCentral()
+    }
+
+    buildscript {
+        repositories {
+            mavenCentral()
+            gradlePluginPortal()
+        }
+    }
+}
+
+
